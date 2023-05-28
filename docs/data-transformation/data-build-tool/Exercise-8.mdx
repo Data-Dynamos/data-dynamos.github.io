@@ -1,0 +1,27 @@
+---
+sidebar_position: 13
+---
+
+# Exercise 8
+
+## Create View for Europe Big Three Emissions
+
+Use the source table `co2_emissions_and_temperatures_by_country` to create a view for the emissions data of the three major European countries: France, Germany, and the United Kingdom.
+
+To create the view `europe_big_three_emissions` with the desired columns in the `carbon_emissions` schema:
+
+1. Open your dbt project and navigate to the appropriate schema directory (e.g., `models/carbon_emissions`).
+2. Create a new file named `europe_big_three_emissions.sql` (or any desired name) in the schema directory.
+3. In the `europe_big_three_emissions.sql` file, write the dbt model definition for the view.
+4. Define the `europe_big_three_emissions` model using the `view` materialization type.
+5. Perform the necessary data transformations to reshape the data to meet the requirements.
+6. Select the following columns for the output view:
+   - `Year`: Integer
+   - `France_TotalEmissions`: Float
+   - `France_PerCapitaEmissions`: Float
+   - `Germany_TotalEmissions`: Float
+   - `Germany_PerCapitaEmissions`: Float
+   - `UnitedKingdom_TotalEmissions`: Float
+   - `UnitedKingdom_PerCapitaEmissions`: Float
+
+By following these instructions and executing the appropriate dbt commands, you will create the view `europe_big_three_emissions` in the `carbon_emissions` schema. The view will contain the emissions data for the three major European countries, with the specified columns as outlined above.

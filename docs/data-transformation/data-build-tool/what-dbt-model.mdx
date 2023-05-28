@@ -1,0 +1,39 @@
+---
+sidebar_position: 3
+---
+
+#   What are dbt models ? 
+
+**DBT Models, `ref` Function, `source` Function, and Models Directory**
+
+In dbt (Data Build Tool), models are the core building blocks that define the transformations and logic applied to your data. They represent the SQL code that is executed against your data warehouse to perform data transformations,
+such as aggregations, joins, filters, and calculations.
+
+Here are the key concepts related to dbt models:
+
+**DBT Models:**
+- DBT models are SQL files that define the transformations to be applied to your data.
+- Each model corresponds to a specific table or view that will be created in your data warehouse.
+- Models can reference other models, allowing you to build a modular and reusable structure for your transformations.
+- Models can have dependencies on other models, ensuring that the required data transformations are executed in the correct order.
+
+**`ref` Function:**
+- The `ref` function is a dbt-specific function used within models to reference other models.
+- It allows you to create relationships between models, enabling dependencies and ensuring proper execution order.
+- By using `ref`, you can easily incorporate the output of one model into another, reducing redundancy and improving maintainability.
+
+**`source` Function:**
+- The `source` function is another dbt-specific function used to reference external data sources within a dbt project.
+- It allows you to define a source configuration for extracting data from a specific database or file.
+- By using `source`, you can load data from external sources into your dbt project and use it in your transformations.
+
+**Models Directory:**
+- In dbt, all the models are typically organized within a dedicated directory called the "models" directory.
+- The models directory is a central location where you store all your SQL files representing dbt models.
+- By convention, the models directory is located at the root of your dbt project.
+- Placing all the models in the models directory helps maintain a structured project layout and makes it easier to locate and manage your transformations.
+
+Overall, dbt models provide a structured approach to data transformations by encapsulating SQL logic and creating relationships between different components of your data pipeline. The `ref` function and `source` function enable modularization and integration of models, allowing you to build complex data pipelines while maintaining code reusability and organization. By following the convention of storing models in the models directory, you can keep your project well-organized and easily navigate through your transformation logic.
+
+
+[Reference](https://docs.getdbt.com/docs/build/models).

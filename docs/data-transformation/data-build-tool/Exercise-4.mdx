@@ -1,0 +1,37 @@
+---
+sidebar_position: 9
+---
+
+# Exercise 4
+
+## Create View for Aggregate Global Temperatures
+
+In this exercise, you will use dbt to create a view called `aggregate_global_temperatures` based on the `stg_global_temperatures` table in the `global_temperatures` schema. This view will group the data by year and provide aggregated temperature values using the appropriate aggregation functions.
+
+To create the view and extract the desired columns:
+
+1. Open your dbt project and navigate to the appropriate schema directory (e.g., `models/global_temperatures`).
+2. Create a new file named `aggregate_global_temperatures.sql` (or any desired name) in the schema directory.
+3. In the `aggregate_global_temperatures.sql` file, write the dbt model definition for the view.
+4. Define the `aggregate_global_temperatures` model using the `view` materialization type.
+5. Specify the columns for the view using the `select` statement.
+6. In the `select` statement, include the following columns from the `stg_global_temperatures` table:
+   - `Date`
+   - `LandAverageTemperature`
+   - `LandMaxTemperature`
+   - `LandMinTemperature`
+   - `LandAndOceanAverageTemperature`
+7. Extract the year from the `Date` column to obtain only the year portion of the date.
+8. Apply suitable aggregation functions, such as `AVG` for average temperature, to calculate the desired values for each year.
+9. Ignore any 'Uncertainty' columns for this project.
+10. Rename the columns as specified in the desired output, using the `as` keyword to assign meaningful aliases.
+11. Save the file `aggregate_global_temperatures.sql`.
+12. Run the dbt command to build the project and create the view in the database.
+
+By following these instructions and executing the appropriate dbt commands, you will create a view called `aggregate_global_temperatures` in the `global_temperatures` schema. 
+The view will have the specified columns:
+   -  `Year` (integer) 
+   -    `LandAverageTemperature` (float)
+   -    `LandMaxTemperature` (float)
+   -    `LandMinTemperature` (float)
+   -    `LandAndOceanAverageTemperature` (float).

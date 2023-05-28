@@ -1,0 +1,29 @@
+---
+sidebar_position: 14
+---
+
+# Exercise 9
+
+To create the `aggregate_country_emissions_temperatures` view in the `carbon_emissions` schema using dbt, follow these instructions:
+
+1. Open your dbt project and navigate to the appropriate schema directory (e.g., `models/carbon_emissions`).
+2. Create a new file named `aggregate_country_emissions_temperatures.sql` (or any desired name) in the schema directory.
+3. In the `aggregate_country_emissions_temperatures.sql` file, write the dbt model definition for the view.
+4. Add the dbt configuration block at the beginning of the file to specify the materialization type as a view using the `config` macro.
+5. Write the dbt model code to define the `aggregate_country_emissions_temperatures` view.
+6. Define the columns to be selected for the view as follows:
+   - Year: Integer
+   - Country: String
+   - TotalEmissions: Float
+   - PerCapitaEmissions: Float
+   - ShareOfGlobalEmissions: Float
+   - AverageTemperature: Float
+7. Use the `ref` macro to reference the `co2_emissions_by_country` table and the `aggregate_country_temperatures` table.
+8. Join the two tables based on the country name and year.
+9. Apply any necessary transformations or functions to the columns, such as using the `INITCAP` function to standardize the country names.
+10. Save the file.
+
+By following these instructions and executing the appropriate dbt commands, 
+you will create the `aggregate_country_emissions_temperatures` view in the `carbon_emissions` schema. 
+The view will combine the emissions data from the `co2_emissions_by_country` table with the temperature data from the `aggregate_country_temperatures` table, using a suitable join condition. 
+The selected columns will include the year, country, total emissions, per capita emissions, share of global emissions, and average temperature.

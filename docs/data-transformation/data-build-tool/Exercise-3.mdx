@@ -1,0 +1,26 @@
+---
+sidebar_position: 8
+---
+
+# Exercise 3
+
+## Create View for Aggregate Global Emissions
+
+In this exercise, you will use dbt to create a view called `aggregate_global_emissions` in the `carbon_emissions` schema. This view will aggregate the total CO2 emissions globally on an annual basis using the data from the `co2_emissions_by_country` table.
+
+To create the view with the desired columns:
+
+1. Open your dbt project and navigate to the appropriate schema directory (e.g., `models/carbon_emissions`).
+2. Create a new file named `aggregate_global_emissions.sql` (or any desired name) in the schema directory.
+3. In the `aggregate_global_emissions.sql` file, write the dbt model definition for the view.
+4. Define the `aggregate_global_emissions` model using the `view` materialization type.
+5. Specify the columns for the view using the `select` statement.
+6. In the `select` statement, include the following columns:
+   - `Year` of type `integer`
+   - `TotalEmissions` of type `float`
+7. Assign meaningful aliases to the columns using the `as` keyword to improve readability and maintain consistency with the desired output table structure.
+8. Save the file `aggregate_global_emissions.sql`.
+9. Run the dbt command to build the project and create the view in the database.
+
+By following these instructions and executing the appropriate dbt commands, 
+you will create a view called `aggregate_global_emissions` in the `carbon_emissions` schema, which will contain the specified columns: `Year` of type `integer` and `TotalEmissions` of type `float`.

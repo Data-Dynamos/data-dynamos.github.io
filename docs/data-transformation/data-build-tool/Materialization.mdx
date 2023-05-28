@@ -1,0 +1,83 @@
+---
+sidebar_position: 4
+---
+
+# Materialization
+
+<!-- markdownlint-disable MD033 -->
+<table>
+  <thead>
+    <tr>
+      <th>Materialization</th>
+      <th>Description</th>
+      <th>Pros</th>
+      <th>Cons</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>View</td>
+      <td>Model is rebuilt as a view on each run</td>
+      <td>
+        <ul>
+          <li>No additional data is stored</li>
+          <li>Views always have the latest records in them</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Views with significant transformations or stacked views can be slow to query</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Table</td>
+      <td>Model is rebuilt as a table on each run</td>
+      <td>
+        <ul>
+          <li>Tables are fast to query</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Tables can take a long time to rebuild, especially for complex transformations</li>
+          <li>New records in source data are not automatically added</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Incremental</td>
+      <td>Allows insertion or update of records into a table since the last run</td>
+      <td>
+        <ul>
+          <li>Significantly reduces build time by transforming only new records</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Complexity and additional configuration required</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Ephemeral</td>
+      <td>Not built into the database; code is interpolated into dependent models as a common table expression (CTE)</td>
+      <td>
+        <ul>
+          <li>Reusable logic can still be written</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Cannot select directly from ephemeral models</li>
+          <li>Operations and macros cannot reference ephemeral nodes</li>
+          <li>Queries may be harder to debug</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+🔑 Golden Rule of Materializations Start with models as views, when they take too long to query, make them tables, when the tables take too long to build, make them incremental.
+
+[Reference](https://docs.getdbt.com/docs/build/materializations)

@@ -2,4 +2,27 @@
 sidebar_position: 1
 ---
 
-# Introduction Data Build Tool [WIP]
+# Introduction Data Build Tool 
+
+## Data Transformation
+
+Data transformation is a crucial step in the data analytics and data engineering process. It involves cleaning, structuring, and manipulating raw data to make it suitable for analysis and consumption. One powerful tool for data transformation is **dbt (data build tool)**.
+
+### What is dbt?
+
+dbt, short for "data build tool," is an open-source command-line tool that simplifies and streamlines the data transformation and modeling process. It focuses on the data transformation phase of the data pipeline, allowing analysts and engineers to transform raw data into a structured and analysis-ready format.
+
+![dbt.jpg](./assets/dbt.jpg)
+
+With dbt, you can define and execute data transformations using SQL queries, which are written in a separate file known as a dbt model. dbt provides a framework for organizing and managing these models, allowing for modularity, reusability, and maintainability of data transformation logic.
+
+Key features of dbt include:
+
+- **Incremental builds**: dbt automatically identifies and applies only the necessary transformations to process new or updated data, minimizing the processing time and resources required.
+- **Dependency management**: dbt allows you to define dependencies between models, ensuring that transformations are executed in the correct order.
+- **Testing and documentation**: dbt enables you to write tests to validate the quality and accuracy of your transformed data. It also facilitates the generation of documentation that describes the purpose, inputs, and outputs of each transformation.
+
+By leveraging dbt in your data transformation workflow, you can enhance efficiency, maintainability, and collaboration in your data projects.
+
+To learn more about dbt and get started, 
+refer to the official [dbt documentation](https://docs.getdbt.com/).

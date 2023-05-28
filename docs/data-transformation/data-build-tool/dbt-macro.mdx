@@ -1,0 +1,29 @@
+---
+sidebar_position: 5
+---
+
+# DBT Macro
+
+In dbt, you can combine SQL with Jinja, a templating language. This combination turns your dbt project into a programming environment for SQL, providing you with the ability to do things that aren't normally possible in SQL alone. One of the powerful features of Jinja is the ability to define and use macros.
+
+**What is a Macro?**
+
+A macro in dbt is analogous to a function in most programming languages. It allows you to abstract snippets of SQL code into reusable units. With macros, you can define SQL code that can be reused across multiple models or queries, providing modularity and code reuse in your dbt project.
+
+**How can Macros be used?**
+
+Macros can be used in a variety of scenarios, such as:
+
+- Using control structures (e.g., if statements and for loops) in SQL.
+- Incorporating environment variables in your dbt project for production deployments.
+- Adapting the behavior of your project based on the current target.
+- Manipulating the results of one query to generate another query. For example:
+  - Returning a list of payment methods to create a subtotal column per payment method (pivot).
+  - Returning a list of columns in two relations and selecting them in the same order to facilitate union operations.
+- Abstracting snippets of SQL code into reusable macros for better code organization and maintenance.
+
+You might already be using macros if you have used functions like `{{ ref() }}` in your dbt project, as these functions are based on Jinja.
+
+Using macros in dbt allows you to leverage the power of Jinja templating to create more dynamic and reusable SQL code in your data transformation processes.
+
+[Reference](https://docs.getdbt.com/docs/build/jinja-macros)

@@ -1,0 +1,52 @@
+---
+sidebar_position: 7
+---
+
+# Exercise 2
+
+To create a table for country emissions, follow the instructions below using dbt:
+
+1. Open your dbt project and navigate to the models folder.
+
+2. Create a new file called `co2_emissions_by_country.sql` or any suitable name for the table model.
+
+3. In the file, define the model using the appropriate schema. For example, `{{ config(materialized='table', schema='carbon_emissions') }}`.
+
+4. Specify the source data by referencing the `STG_EMISSIONS_BY_COUNTRY` view. You can use the `ref()` function to refer to the view. For example, `FROM {{ ref('STG_EMISSIONS_BY_COUNTRY') }}`.
+
+5. Define the columns in your output table according to the requirements. For this scenario, you need the following columns:
+   - Year: integer
+   - Country: string
+   - TotalEmissions: float
+   - PerCapitaEmissions: float
+   - ShareOfGlobalEmissions: float
+
+6. Write the SQL query to populate the table. Use the `SELECT` statement to fetch the required columns from the source view. For example:
+ 
+```sql
+ 
+{{
+  config(
+    materialized = 'table'
+    )
+}}
+
+
+#TODO 
+
+#Your output table should contain:
+#Year: integer
+
+#Country: string
+#TotalEmissions: float
+#PerCapitaEmissions: float
+#ShareOfGlobalEmissions: float 
+
+   ```
+
+7. Save the file.
+
+8. Build and run the dbt project to create the table. You can use the `dbt run` command in your terminal.
+
+After successfully running the dbt project, the `co2_emissions_by_country` table will be created in the specified `carbon_emissions` schema. 
+It will contain the desired columns populated with data from the `STG_EMISSIONS_BY_COUNTRY` view. You can now use this table for further analysis and reporting on country emissions.

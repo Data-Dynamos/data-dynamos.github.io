@@ -1,0 +1,38 @@
+---
+sidebar_position: 10
+---
+
+# Exercise 5
+
+## Create Table for Aggregate Global Emissions and Temperatures
+
+In this exercise, you will use dbt to perform an INNER JOIN between the `aggregate_global_emissions` and `aggregate_global_temperatures` views to analyze the relationship between global emissions and temperatures. The result of the join will be stored in a table called `aggregate_global_emissions_temperatures` in the `global_temperatures` schema.
+
+To create the table with the desired columns:
+
+1. Open your dbt project and navigate to the appropriate schema directory (e.g., `models/global_temperatures`).
+2. Create a new file named `aggregate_global_emissions_temperatures.sql` (or any desired name) in the schema directory.
+3. In the `aggregate_global_emissions_temperatures.sql` file, write the dbt model definition for the table.
+4. Define the `aggregate_global_emissions_temperatures` model using the `table` materialization type.
+5. Specify the columns for the table using the `select` statement.
+6. In the `select` statement, perform an INNER JOIN between the `aggregate_global_emissions` and `aggregate_global_temperatures` views on the "Year" column.
+7. Select the following columns from the joined data:
+   - `Year`: Integer
+   - `TotalEmissions`: Float
+   - `LandAverageTemperature`: Float
+   - `LandMaxTemperature`: Float
+   - `LandMinTemperature`: Float
+   - `LandAndOceanAverageTemperature`: Float
+
+Your output table, `aggregate_global_emissions_temperatures`, should have the following columns:
+
+- `Year`: Integer
+- `TotalEmissions`: Float
+- `LandAverageTemperature`: Float
+- `LandMaxTemperature`: Float
+- `LandMinTemperature`: Float
+- `LandAndOceanAverageTemperature`: Float
+
+By following these instructions and executing the appropriate dbt commands, 
+you will create a table called `aggregate_global_emissions_temperatures` in the `global_temperatures` schema.
+The table will contain the results of the INNER JOIN between the `aggregate_global_emissions` and `aggregate_global_temperatures` views, with the specified columns as outlined above.

@@ -1,0 +1,28 @@
+---
+sidebar_position: 12
+---
+
+# Exercise 7
+
+## Create Table for Aggregate Country Emissions Temperatures
+
+In this exercise, you will create a table that combines the results of the `co2_emissions_by_country` table and the `aggregate_country_temperatures` table. You will perform an INNER JOIN between these two tables and standardize the country name using the `initcap` function.
+
+To create the table `aggregate_country_emissions_temperatures` with the desired columns in the `carbon_emissions` schema:
+
+1. Open your dbt project and navigate to the appropriate schema directory (e.g., `models/carbon_emissions`).
+2. Create a new file named `aggregate_country_emissions_temperatures.sql` (or any desired name) in the schema directory.
+3. In the `aggregate_country_emissions_temperatures.sql` file, write the dbt model definition for the table.
+4. Define the `aggregate_country_emissions_temperatures` model using the `table` materialization type.
+5. Perform an INNER JOIN between the `co2_emissions_by_country` table and the `aggregate_country_temperatures` table using the "Year" and "Country" columns as the join conditions.
+6. Use the `initcap` function to standardize the country name in the "Country" column.
+7. Select the following columns for the output table:
+   - `Year`: Integer
+   - `Country`: String
+   - `TotalEmissions`: Float
+   - `PerCapitaEmissions`: Float
+   - `ShareOfGlobalEmissions`: Float
+   - `AverageTemperature`: Float
+
+By following these instructions and executing the appropriate dbt commands, you will create the table `aggregate_country_emissions_temperatures` in the `carbon_emissions` schema.
+The table will contain the combined results of the emissions and temperatures data, with the specified columns as outlined above.

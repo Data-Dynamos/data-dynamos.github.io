@@ -1,0 +1,40 @@
+---
+sidebar_position: 7
+---
+
+# Exercise 1 
+
+
+## Create `replace_invalid_chars` dbt Macro?
+
+The `replace_invalid_chars` dbt macro is designed to replace invalid characters in column names and regulate the column name during the ingestion of flattened JSON data.
+This macro ensures that the column names are standardized and compatible with your data ingestion processes.
+
+
+
+The `replace_invalid_chars` macro takes a column name as input and performs the following steps:
+
+1. It defines a list of invalid characters, including spaces, commas, semicolons, newlines, tabs, equal signs, hyphens, curly braces, parentheses, percentage signs, and dollar signs.
+2. It also defines a list of characters that can be replaced with underscores.
+3. It initializes a `new_name` variable with the original column name and creates a namespace `ns`.
+4. It iterates over the invalid characters and replaces them with either an underscore or an empty string (depending on the character).
+5. If the character is a percentage sign (%), it replaces it with the string "percentage".
+6. Finally, it strips any leading or trailing spaces from the modified column name and replaces any remaining spaces with underscores.
+
+### Example Usage
+
+Consider the following example SQL query:
+
+```sql
+SELECT  
+    PARSE_JSON(JSON_STRING):"Date"::VARCHAR AS "Date",
+    PARSE_JSON(JSON_STRING):"LandAndOceanAverageTemperature"::VARCHAR AS {{replace_invalid_chars("LandAndOceanAverageTemperature") }}
+FROM my_table
+```
+
+In this query, we use the `replace_invalid_chars` macro to generate a regulated column name for the `"LandAndOceanAverageTemperature"` field. The macro ensures that the column name is properly formatted and does not contain any invalid characters that could disrupt the data ingestion process.
+
+Use replace_invalid_chars macro during the flattening json Process
+-  stg_emissions_by_country 
+-  stg_global_temperatures
+-  stg_temperatures_by_country
