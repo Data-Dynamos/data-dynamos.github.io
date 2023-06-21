@@ -2,7 +2,7 @@
 title: Tour Agenda
 sidebar_position: 1
 ---
-![Data Aware Agenda.png](assets/Data Aware Agenda.png)
+![data_aware_agenda.png](./assets/data_aware_agenda.png)
 
 ## Data Engineering 🔮
 
