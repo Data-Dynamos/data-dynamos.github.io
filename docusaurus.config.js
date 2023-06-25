@@ -21,7 +21,7 @@ const config = {
   organizationName: 'Data-Dynamos', // Usually your GitHub org/user name.
   projectName: 'data-dynamos.github.io',
   trailingSlash: false, 
-  deploymentBranch: 'master',
+  deploymentBranch: 'deployment',
 
   onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',

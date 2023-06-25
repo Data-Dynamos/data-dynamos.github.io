@@ -16,5 +16,21 @@ To create the view with the desired columns:
 
 ## Your output view should contain:
 
-- Year: integer
-- TotalEmissions:float
+- YEAR: integer
+- TOTALEMISSIONS:float
+
+## Sample Output 
+
+| TOTALEMISSIONS | YEAR |
+|----------------|------|
+|  74665.790947  | 1978 |
+|  74492.606202  | 1983 |
+
+
+:::note
+
+In the SQL statement, the use of double quotes around the YEAR column name is necessary because it is a reserved keyword in Snowflake. 
+
+``` select "YEAR" FROM TABLE ```
+
+:::

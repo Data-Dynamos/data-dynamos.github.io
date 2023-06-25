@@ -71,6 +71,17 @@ INNER JOIN customers AS c
 Note: Replace `table_name`, `view_name`, `column1`, `column2`, and `condition` with the appropriate names and conditions for your use case.
 
 
+## Reserved & Limited Keywords
+
+Snowflake SQL reserves all ANSI keywords (with the exception of type keywords such as CHAR, DATE, DECIMAL, etc.), as well as some additional keywords (ASC, DESC, MINUS, etc.) that are reserved by other popular databases. Additionally, Snowflake reserves keywords REGEXP and RLIKE (which function like the ANSI reserved keyword LIKE) and SOME (which is a synonym for the ANSI reserved keyword ANY).
+
+To avoid parsing ambiguities, Snowflake SQL also prohibits the use of keywords such as LEFT, OUTER, JOIN, etc. as table names or aliases in the FROM list, and the use of keywords such as TRUE, FALSE, CASE, etc. as column references in scalar expressions.
+
+eg. ACCOUNT,BETWEEN,SAMPLE,TABLE,WHENEVER 
+
+[Referrence Link](https://docs.snowflake.com/en/sql-reference/reserved-keywords)
+
+
 ## Join types
 
 Data cleansing and enrichment processes need to combine, filter, aggregate, and select different sets to answer questions we have. That translates into knowing how to perform different types of JOINs and WHERE clauses to simple SELECT statements. First and foremost, we need to get up to speed with JOINs.
