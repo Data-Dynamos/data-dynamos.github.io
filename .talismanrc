@@ -1,6 +1,6 @@
 fileignoreconfig:
 - filename: docs/data-transformation/SQL/sql-quick-review.mdx
-  checksum: b4f8817e4637a19db7c5172351af5463bd25299894697a10aaf22d6288fc5ec4
+  checksum: f115eb68f57a7ad5be3fd6cd6c75184e200eab60d81ef83dde8c64c6a38f24a9
 - filename: docs/Snowflake/Introduction.mdx
   checksum: 4fe5a03223459ddb954138c33de1d62e686f399e307f37f23efd77d62920ff5b
 version: ""
