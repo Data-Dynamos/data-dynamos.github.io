@@ -4,36 +4,36 @@ sidebar_position: 9
 
 # Exercise: 7
 
-## Create view for Europe Big Three Emissions
+## Create table for Aggregate Country Emissions Temperatures
 
-Use the source table `co2_emissions_and_temperatures_by_country` to create a view for the emissions data of the three major European countries: France, Germany, and the United Kingdom.
 
-1.To create the view `europe_big_three_emissions` with the desired columns in the `carbon_emissions` schema 
+In this exercise, you will create a table that combines the results of the `co2_emissions_by_country` table and the `aggregate_country_temperatures` table. You will perform an INNER JOIN between these two tables and standardize the country name using the `initcap` function.
 
-2.Determine the join conditions based on the columns that link the tables.
-In your case, the join conditions are:
-- global.Year = france.Year AND france.Country = 'France'
-- global.Year = germany.Year AND germany.Country = 'Germany'
-- global.Year = uk.Year AND uk.Country = 'United Kingdom'
-Adjust the join conditions based on your specific column names and criteria.
+To create the table `co2_emissions_and_temperatures_by_country` with the desired columns in the `carbon_emissions` schema :
 
-Reshape the data to meet the following requirements:
-
-Select the following columns for the output view:
-- YEAR: integer
-- FRANCE_TOTALEMISSIONS: float
-- FRANCE_PERCAPITAEMISSIONS: float
-- GERMANY_TOTALEMISSIONS: float
-- GERMANY_PERCAPITAEMISSIONS: float
-- UNITEDKINGDOM_TOTALEMISSIONS: float
-- UNITEDKINGDOM_PERCAPITAEMISSIONS: float
+1. Perform an INNER JOIN between the `co2_emissions_by_country` table and the `aggregate_country_temperatures` table on the "Year" and "Country" columns.
+2. Use the `initcap` function to standardize the country name in the "Country" column.
+3. Create `COUNTRY_AVGTEMP_BKEY` column by combining the  COUNTRY ,YEAR ,and AVERAGETEMPERATURE columns using the '|' symbol as a separator.
+4. Select the following columns for the output table:
+   - COUNTRY_AVGTEMP_BKEY: String
+   - YEAR: Integer
+   - COUNTRY: String
+   - TOTALEMISSIONS: Float
+   - PERCAPITAEMISSIONS: Float
+   - SHAREOFGLOBALEMISSIONS: Float
+   - AVERAGETEMPERATURE: Float
 
 Sample Output 
 
-| YEAR | FRANCE_TOTALEMISSIONS | FRANCE_PERCAPITAEMISSIONS | GERMANY_TOTALEMISSIONS | GERMANY_PERCAPITAEMISSIONS | UK_TOTALEMISSIONS | UK_PERCAPITAEMISSIONS |
-|------|-----------------------|--------------------------|------------------------|---------------------------|--------------------|-----------------------|
-| 1845 | 17.836352             | 0.500937                 | 12.611488              | 0.389193                  | 99.986896         | 4.618767              |
-| 1846 | 18.528848             | 0.518265                 | 13.186736              | 0.403786                  | 95.692688         | 4.381496              |
+Certainly! Here's the markdown representation of the provided CSV table:
+
+| COUNTRY_AVGTEMP_BKEY | YEAR | COUNTRY | TOTALEMISSIONS | PERCAPITAEMISSIONS | SHAREOFGLOBALEMISSIONS | AVERAGETEMPERATURE |
+|---------------------|------|---------|----------------|-------------------|------------------------|--------------------|
+| Germany\|\|1796\|\|8.64875 | 1796 | Germany | 0.534944 | 0.01397 | 2.330779 | 8.64875 |
+| Germany\|\|1802\|\|8.988833333 | 1802 | Germany | 0.553264 | 0.02397 | 1.504134 | 8.988833333 |
+
+Please note that the table assumes that the values are separated by commas (,) in the provided CSV data.
+
 
 :::note
 
