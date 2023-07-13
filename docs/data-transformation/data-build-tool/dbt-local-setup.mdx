@@ -7,9 +7,31 @@ sidebar_position: 2
 
 Here are the instructions to set up dbt locally:
 
-1. **Install Python**: Make sure you have Python installed on your machine. dbt requires Python version 3.7 or higher.
+1. **Install Python**: Refer Python website (https://www.python.org) to install python for your operating system. Make sure you have installed Python version 3.9 or higher to compatibile with dbt.
 
-2. **Install dbt packages**: Open your terminal or command prompt and run the following command to install the necessary dbt packages:
+2. Open a terminal or command prompt: Launch a terminal or command prompt on your machine.
+
+3. Create a virtual environment: Run the following command to create a new virtual environment named "myenv":
+
+   ```
+   python -m venv myenv
+   ```
+
+4. Activate the virtual environment: Depending on your operating system, run the appropriate command to activate the virtual environment:
+
+- For **Windows**:
+
+     ```
+     myenv\Scripts\activate
+     ```
+
+- For **macOS/Linux**:
+
+     ```
+     source myenv/bin/activate
+     ```
+
+5. **Install dbt packages**: Open your terminal or command prompt and run the following command to install the necessary dbt packages:
 
    ```
    pip install dbt-core
@@ -21,13 +43,7 @@ Here are the instructions to set up dbt locally:
    pip install dbt-snowflake
    ```
 
-3. **Install dbt-utils**: dbt-utils is a package that contains generic test macros that can be reused across dbt projects. Install it by running the following command:
-
-   ```
-   pip install dbt-utils
-   ```
-
-4. **Verify dbt installation**: To ensure dbt is installed correctly, run the following command in your terminal:
+5. **Verify dbt installation**: To ensure dbt is installed correctly, run the following command in your terminal:
 
    ```
    dbt --version
@@ -35,7 +51,7 @@ Here are the instructions to set up dbt locally:
 
    You should see the dbt version displayed, indicating that dbt is successfully installed.
 
-5. **Initialize a dbt project**: Create a new directory for your dbt project and navigate into it. Then, run the following command to initialize a new dbt project:
+6. **Initialize a dbt project**: Create a new directory for your dbt project and navigate into it. Then, run the following command to initialize a new dbt project:
 
    ```
    dbt init project_name
@@ -43,13 +59,13 @@ Here are the instructions to set up dbt locally:
 
    Replace `project_name` with the desired name for your project. This command sets up the basic structure and configuration files for your dbt project.
 
-6. **Configure dbt project**: Open the `dbt_project.yml` file in your project directory and update the following values:
+7. **Configure dbt project**: Open the `dbt_project.yml` file in your project directory and update the following values:
 
    - `name`: Set the name of your project.
    - `profile`: Set the profile name to use for connecting to your database.
    - `models`: Set the value to match the name of your project.
 
-7. **Check dbt configuration**: Run the following command to check the dbt configuration:
+8. **Check dbt configuration**: Run the following command to check the dbt configuration:
 
    ```
    dbt debug --config-dir
@@ -57,11 +73,13 @@ Here are the instructions to set up dbt locally:
 
    This command verifies the configuration directory and displays information about your dbt setup.
 
-**Understanding the .dbt.yml Configuration File**
+   cd to the `.dbt` path (PosixPath) specified in the output of above command to view profiles.yml file.
 
-The `.dbt.yml` file is a configuration file used by dbt (Data Build Tool) to specify various settings and parameters for your dbt project. It is written in YAML (YAML Ain't Markup Language) format, which is a human-readable data serialization format.
+**Understanding the .dbt/profiles.yml Configuration File**
 
-Here's an explanation of the key sections and parameters found in the `.dbt.yml` file:
+The `.dbt/profiles.yml` file is a configuration file used by dbt (Data Build Tool) to specify various settings and parameters for your dbt project. It is written in YAML (YAML Ain't Markup Language) format, which is a human-readable data serialization format.
+
+Here's an explanation of the key sections and parameters found in the `.dbt/profiles.yml` file:
 
 - `project_name`: Specifies the name of your dbt project. This is a user-defined name that identifies your project.
 
@@ -71,7 +89,7 @@ Here's an explanation of the key sections and parameters found in the `.dbt.yml`
 
 - `target`: Specifies the target environment to use for dbt commands. In this example, the target is set to `dev`, which corresponds to the `dev` output configuration defined above.
 
-The `.dbt.yml` file allows you to define multiple output configurations and switch between them using the `target` parameter. This flexibility enables you to easily work with different environments, such as development, staging, and production, without modifying your dbt code.
+The `.dbt/profiles.yml` file allows you to define multiple output configurations and switch between them using the `target` parameter. This flexibility enables you to easily work with different environments, such as development, staging, and production, without modifying your dbt code.
 
 ```
 Project_name:
@@ -93,12 +111,12 @@ Project_name:
 To set up your local dbt project, you need to:
 1. Install dbt and its dependencies as mentioned in the previous instructions.
 2. Create a new project using the `dbt init project_name` command.
-3. Open the generated `.dbt.yml` file and update the `project_name` and `outputs` sections based on your project and database configuration.
+3. Open the generated `.dbt/profiles.yml` file and update the `project_name` and `outputs` sections based on your project and database configuration.
 4. Customize the parameters under the desired output configuration (e.g., `dev`) to match your database connection details.
-5. Save the `.dbt.yml` file and ensure it is placed in the root directory of your dbt project.
+5. Save the `.dbt/profiles.yml` file and ensure it is placed in the root directory of your dbt project.
 6. Run the `dbt debug --config-dir` command to verify the configuration and check the configuration directory of the `.dbt` file.
 
-By properly configuring the `.dbt.yml` file, you can ensure that dbt connects to the correct database and executes your models and transformations in the desired environment.
+By properly configuring the `.dbt/profiles.yml` file, you can ensure that dbt connects to the correct database and executes your models and transformations in the desired environment.
 
 You have now set up dbt locally and configured your project.
 You can start building your dbt models and transformations using SQL queries.

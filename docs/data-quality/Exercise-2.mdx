@@ -1,0 +1,28 @@
+---
+sidebar_position: 4
+---
+
+# Exercise 2 
+
+
+#### To create singular test to validate `count check` on total number of rows in `aggregate_global_emissions` model
+
+Follow the instructions below using DBT:
+
+1. Open your dbt project and navigate to the tests folder.
+
+2. Create a new file called `assert_row_count_aggregate_global_emissions.sql` or any suitable name for the singular test file.
+
+3. In the file, define the query to check the row count of `aggregate_global_emissions` view. As per the given source dataset, row count should be less than or equal to 270.
+
+4. Specify the view name in the query by referencing the `aggregate_global_emissions` view. You can use the `ref()` function to refer to the view. For example, `FROM {{ ref('aggregate_global_emissions') }}`.
+
+5. Define the query in such a way that it should result output if the row count of the table exceeds 270.
+
+:::tip
+Use count(*) clause to do row count check.
+:::
+
+6. Save the file.
+
+7. Run the dbt test project to validate the result. You can use the `dbt test` command in your terminal to see if test case is successfully completed.

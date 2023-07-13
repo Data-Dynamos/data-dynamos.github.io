@@ -13,7 +13,7 @@ To create the table `co2_emissions_and_temperatures_by_country` with the desired
 
 1. Perform an INNER JOIN between the `co2_emissions_by_country` table and the `aggregate_country_temperatures` table on the "Year" and "Country" columns.
 2. Use the `initcap` function to standardize the country name in the "Country" column.
-3. Create `COUNTRY_AVGTEMP_BKEY` column by combining the  COUNTRY ,YEAR ,and AVERAGETEMPERATURE columns using the '|' symbol as a separator.
+3. Create `COUNTRY_AVGTEMP_BKEY` column by combining the  COUNTRY ,YEAR ,and AVERAGETEMPERATURE columns using the '||' symbol as a separator.
 4. Select the following columns for the output table:
    - COUNTRY_AVGTEMP_BKEY: String
    - YEAR: Integer
