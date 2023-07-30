@@ -1,22 +1,11 @@
 ---
-title: resources [WIP]
+title: Resources
 ---
 
-## Downloadable Resources 
+## Resources 
 
-- [Resource 1 Title](link-to-resource-1): Short description of the resource
-- [Resource 2 Title](link-to-resource-2): Short description of the resource
-- [Resource 3 Title](link-to-resource-3): Short description of the resource
-
-## External Resources
-
-- [Resource 1 Title](link-to-resource-1): Short description of the resource
-- [Resource 2 Title](link-to-resource-2): Short description of the resource
-- [Resource 3 Title](link-to-resource-3): Short description of the resource
-
-## Recommended Books 📚
-
-- [Book 1 Title](link-to-book-1): Short description of the book
-- [Book 2 Title](link-to-book-2): Short description of the book
-- [Book 3 Title](link-to-book-3): Short description of the book
-
+- [SQL Tutorial](https://www.w3schools.com/sql/)
+- [DBT Courses](https://courses.getdbt.com/collections)
+- [Unit Test DBT](https://medium.com/towards-data-science/improving-the-code-quality-of-your-dbt-models-with-unit-tests-and-tdd-203ed0be791e)
+- [Data Quality Framework(Sod )](https://medium.com/@samvardhan777/unleashing-the-power-of-soda-data-quality-framework-a-deep-dive-into-data-validation-and-8dfdf6575302)
+- [Streamlit Courses](https://youtu.be/_9WiB2PDO7k)

@@ -80,7 +80,7 @@ const config = {
           },
           {to: '/resources', label: 'Resources', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/Data-Dynamos/data-dynamos.github.io',
             label: 'GitHub',
             position: 'right',
           },
@@ -99,37 +99,16 @@ const config = {
             ],
           },
           {
-            title: 'Community',
+            title: 'Info',
             items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/Data-Dynamos/data-dynamos.github.io',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Data Dynamos`,
       },
       prism: {
         theme: lightCodeTheme,

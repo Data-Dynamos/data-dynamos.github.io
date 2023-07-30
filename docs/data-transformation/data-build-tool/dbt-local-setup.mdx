@@ -2,122 +2,140 @@
 sidebar_position: 2
 ---
 
-#   Data Build Tool:Installation and Configuration Guide
+# DBT Local Setup
 
+There are two ways to setup and run the code in this repository:
 
-Here are the instructions to set up dbt locally:
+1. [Setup Directly on the Machine](#setup-directly-on-the-machine): Install all the Software directly on your machine and run the code.
+2. [Setup Using Docker](#setup-using-docker): Use a pre-built Docker image containing all the Software already and run the code inside Docker container.
 
-1. **Install Python**: Refer Python website (https://www.python.org) to install python for your operating system. Make sure you have installed Python version 3.9 or higher to compatibile with dbt.
+## Setup Directly on the Machine
 
-2. Open a terminal or command prompt: Launch a terminal or command prompt on your machine.
+### Prerequisites
 
-3. Create a virtual environment: Run the following command to create a new virtual environment named "myenv":
+- Pyenv
+- Python
+- Poetry
 
-   ```
-   python -m venv myenv
-   ```
+#### Install Pyenv v2.3.22
 
-4. Activate the virtual environment: Depending on your operating system, run the appropriate command to activate the virtual environment:
-
-- For **Windows**:
-
-     ```
-     myenv\Scripts\activate
-     ```
-
-- For **macOS/Linux**:
-
-     ```
-     source myenv/bin/activate
-     ```
-
-5. **Install dbt packages**: Open your terminal or command prompt and run the following command to install the necessary dbt packages:
-
-   ```
-   pip install dbt-core
-   ```
-
-   This command installs the core dbt package and additional packages specific to your database engine (e.g., dbt-postgres for PostgreSQL, dbt-snowflake for Snowflake).
-
-   ```
-   pip install dbt-snowflake
-   ```
-
-5. **Verify dbt installation**: To ensure dbt is installed correctly, run the following command in your terminal:
-
-   ```
-   dbt --version
-   ```
-
-   You should see the dbt version displayed, indicating that dbt is successfully installed.
-
-6. **Initialize a dbt project**: Create a new directory for your dbt project and navigate into it. Then, run the following command to initialize a new dbt project:
-
-   ```
-   dbt init project_name
-   ```
-
-   Replace `project_name` with the desired name for your project. This command sets up the basic structure and configuration files for your dbt project.
-
-7. **Configure dbt project**: Open the `dbt_project.yml` file in your project directory and update the following values:
-
-   - `name`: Set the name of your project.
-   - `profile`: Set the profile name to use for connecting to your database.
-   - `models`: Set the value to match the name of your project.
-
-8. **Check dbt configuration**: Run the following command to check the dbt configuration:
-
-   ```
-   dbt debug --config-dir
-   ```
-
-   This command verifies the configuration directory and displays information about your dbt setup.
-
-   cd to the `.dbt` path (PosixPath) specified in the output of above command to view profiles.yml file.
-
-**Understanding the .dbt/profiles.yml Configuration File**
-
-The `.dbt/profiles.yml` file is a configuration file used by dbt (Data Build Tool) to specify various settings and parameters for your dbt project. It is written in YAML (YAML Ain't Markup Language) format, which is a human-readable data serialization format.
-
-Here's an explanation of the key sections and parameters found in the `.dbt/profiles.yml` file:
-
-- `project_name`: Specifies the name of your dbt project. This is a user-defined name that identifies your project.
-
-- `outputs`: Defines the different output configurations for your project, such as different database connections or target environments. Each output configuration is specified as a separate block under `outputs`.
-
-- `dev` (example output configuration): Represents a specific output configuration, such as a development environment. It contains various parameters for the connection to the target database, including `account`, `database`, `password`, `role`, `schema`, `threads`, `type`, `user`, and `warehouse`. These parameters should be customized based on your specific setup.
-
-- `target`: Specifies the target environment to use for dbt commands. In this example, the target is set to `dev`, which corresponds to the `dev` output configuration defined above.
-
-The `.dbt/profiles.yml` file allows you to define multiple output configurations and switch between them using the `target` parameter. This flexibility enables you to easily work with different environments, such as development, staging, and production, without modifying your dbt code.
-
-```
-Project_name:
-    outputs:
-    dev:
-        account: Account
-        client_session_keep_alive: false
-        database: DBNAME
-        password: PASSWORD
-        role: ROLE
-        schema: SCHEMA
-        threads: 8
-        type: snowflake
-        user: USERNAME
-        warehouse: WAREHOUSE
-    target: dev
+```shell
+curl https://pyenv.run | PYENV_GIT_TAG=v2.3.22 bash
 ```
 
-To set up your local dbt project, you need to:
-1. Install dbt and its dependencies as mentioned in the previous instructions.
-2. Create a new project using the `dbt init project_name` command.
-3. Open the generated `.dbt/profiles.yml` file and update the `project_name` and `outputs` sections based on your project and database configuration.
-4. Customize the parameters under the desired output configuration (e.g., `dev`) to match your database connection details.
-5. Save the `.dbt/profiles.yml` file and ensure it is placed in the root directory of your dbt project.
-6. Run the `dbt debug --config-dir` command to verify the configuration and check the configuration directory of the `.dbt` file.
+##### Load pyenv automatically
 
-By properly configuring the `.dbt/profiles.yml` file, you can ensure that dbt connects to the correct database and executes your models and transformations in the desired environment.
+###### For bash
 
-You have now set up dbt locally and configured your project.
-You can start building your dbt models and transformations using SQL queries.
-Refer to the dbt documentation for further guidance on using dbt for data transformation and modeling.
+```shell
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+exec "$SHELL"
+```
+
+###### For Zsh
+
+```shell
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+exec "$SHELL"
+```
+
+If you are using shells other than bash or Zsh refer: https://github.com/pyenv/pyenv#set-up-your-shell-environment-for-pyenv
+
+#### Install Python 3.8.16
+
+```shell
+pyenv --version
+pyenv install 3.8.16
+pyenv versions # should list Python 3.8.16 version
+```
+
+#### Install Poetry 1.5.1
+
+```shell
+curl -sSL https://install.python-poetry.org | POETRY_VERSION=1.5.1 python3 -
+```
+
+##### Add Poetry bin directory to PATH
+
+###### For bash:
+
+```shell
+echo 'export PATH="$HOME/.local/bin/:$PATH"' >> ~/.bashrc
+exec "$SHELL"
+```
+
+###### For Zsh:
+
+```shell
+echo 'export PATH="$HOME/.local/bin/:$PATH"' >> ~/.zshrc
+exec "$SHELL"
+```
+
+### Usage
+
+#### Create virtualenv and Install Dependencies
+
+```shell
+# setup virtualenv and install the dependencies
+poetry install
+
+# run a command inside the virtualenv
+poetry run dbt --version
+
+# start a virtualenv shell and run commands inside it
+poetry shell
+dbt --version
+
+# install dbt packages
+cd data_transformation
+dbt deps
+```
+
+#### Data Transformations
+
+```shell
+poetry shell
+
+export SNOWFLAKE_ACCOUNT='<your-snowflake-account-name>'
+export SNOWFLAKE_DATABASE='<your-database-name>'
+export SNOWFLAKE_USER='<your-user-name>'
+export SNOWFLAKE_PASSWORD='<your-password>'
+
+cd data_transformation
+dbt debug # should connect to snowflake successfully
+```
+
+
+## Setup Using Docker
+
+### Prerequisites
+
+- Docker
+
+### Usage
+
+> **Note:** The code will be mounted inside the container so whatever changes you make in your local machine will be synced to the container.
+
+#### Data Transformations
+
+- Start the container
+
+```shell
+docker run --rm -it -v $PWD:/opt/data_dynamos_exercise quay.io/data-dynamos/data_dynamos_exercise bash
+```
+
+- Run the code inside the container
+
+```shell
+export SNOWFLAKE_ACCOUNT='<your-snowflake-account-name>'
+export SNOWFLAKE_DATABASE='<your-database-name>'
+export SNOWFLAKE_USER='<your-user-name>'
+export SNOWFLAKE_PASSWORD='<your-password>'
+
+cd data_transformation
+dbt debug # should connect to snowflake successfully
+```
