@@ -2,7 +2,7 @@
 sidebar_position: 51
 ---
 
-# Airflow (Optional) [WIP]
+# Airflow (Optional)
 
 <div style={{textAlign: 'center'}}>
 

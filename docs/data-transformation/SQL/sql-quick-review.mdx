@@ -14,6 +14,10 @@ SQL is a programming language used to manage and manipulate relational databases
 
 </div>
 
+## SQL Nutshell 🌏
+
+![sql-joins.png](./assets/sql.gif)
+
 ### Creating Tables
 
 To create a table in Snowflake, use the following syntax:
@@ -180,6 +184,36 @@ There are other ways to combine datasets, but both query parts need to have the 
 - UNION ALL
 - EXCEPT
 - INTERSECT
+
+
+# Datatype Cast in SQL
+
+## Overview
+Datatype casting in SQL is used to convert values from one data type to another. It's essential for handling data stored in various formats.
+
+## Syntax
+The `CAST()` function is commonly used for casting:
+```sql
+CAST(expression AS target_datatype)
+```
+
+Alternatively, use the shorthand `::` operator:
+```sql
+expression::target_datatype
+```
+
+## Key Points
+- Casting aligns with `TO_datatype` conversion functions.
+- An error is raised if the cast is not possible due to data type incompatibility.
+- Examples:
+  - Convert string to integer: `CAST('123' AS INT)` or `'123'::INT`.
+  - Convert date to string: `CAST(NOW() AS VARCHAR)` or `NOW()::VARCHAR`.
+
+> **Note:** 
+- Familiarize with your SQL database's supported data types.
+- Validate data before casting to prevent errors.
+- Be aware of potential data truncation or rounding in some conversions.
+
 
 If you want to change granularity levels on your data and also summarize it, go [here](https://en.wikipedia.org/wiki/SQL_window_function) and [here](https://docs.microsoft.com/en-us/sql/relational-databases/window-functions/quickstart-window-functions-by-example?view=sql-server-ver15) to start your learning path.
 

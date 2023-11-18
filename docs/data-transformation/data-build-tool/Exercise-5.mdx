@@ -2,11 +2,11 @@
 sidebar_position: 10
 ---
 
-# Exercise 5
+# Exercise 4
 
 ## Create Table for Aggregate Global Emissions and Temperatures
 
-In this exercise, you will use dbt to perform an INNER JOIN between the `aggregate_global_emissions` and `aggregate_global_temperatures` views to analyze the relationship between global emissions and temperatures. The result of the join will be stored in a table called `aggregate_global_emissions_temperatures` in the `global_temperatures` schema.
+In this exercise, you will use dbt to perform an INNER JOIN between the `aggregate_global_emissions` and `aggregate_global_temperatures` table to analyze the relationship between global emissions and temperatures. The result of the join will be stored in a table called `aggregate_global_emissions_temperatures` in the `global_temperatures` schema.
 
 To create the table with the desired columns:
 
@@ -15,7 +15,7 @@ To create the table with the desired columns:
 3. In the `aggregate_global_emissions_temperatures.sql` file, write the dbt model definition for the table.
 4. Define the `aggregate_global_emissions_temperatures` model using the `table` materialization type.
 5. Specify the columns for the table using the `select` statement.
-6. In the `select` statement, perform an INNER JOIN between the `aggregate_global_emissions` and `aggregate_global_temperatures` views on the "Year" column.
+6. In the `select` statement, perform an INNER JOIN between the `aggregate_global_emissions` and `aggregate_global_temperatures` table on the "Year" column.
 7. Select the following columns from the joined data:
    - `Year`: Integer
    - `TotalEmissions`: Float

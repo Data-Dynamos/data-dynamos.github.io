@@ -3,7 +3,7 @@ sidebar_position: 5
 ---
 
 
-# Quiz [WIP]
+# Quiz ✨ (Optional)
 
 ## Why might you generally want to transform data “close” to its source?
 (e.g. if your huge dataset lies on AWS S3, why would you often/generally want to crunch it within your AWS tenant/account first rather than serving the raw data directly to consumers?)
