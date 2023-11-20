@@ -209,6 +209,48 @@ expression::target_datatype
   - Convert string to integer: `CAST('123' AS INT)` or `'123'::INT`.
   - Convert date to string: `CAST(NOW() AS VARCHAR)` or `NOW()::VARCHAR`.
 
+
+## Extracting Year from a Date String in SQL
+
+In SQL, you can convert a date string to a timestamp and then extract the year part from it. This is particularly useful when you have date information as a string and need to extract specific components like the year.
+
+### Function Explanation
+
+- `to_timestamp("DATE", 'MM-dd-yyyy')`: Converts a date string in the 'MM-dd-yyyy' format to a timestamp. For example, '12-25-2020' would be converted to a timestamp representing 25th December 2020.
+- `year(...)`: Extracts the year part from the timestamp.
+
+### SQL Query Example
+
+Consider a table named `example_table` with a column `DATE` containing date strings in the 'MM-dd-yyyy' format. To select these dates and extract the year from each one, use the following SQL query:
+
+```sql
+SELECT 
+    DATE, 
+    year(to_timestamp(DATE, 'MM-dd-yyyy')) AS Year 
+FROM 
+    example_table;
+```
+
+### Expected Output
+
+Given the following sample data in `example_table`:
+
+| DATE       |
+|------------|
+| 12-25-2020 |
+| 07-04-2019 |
+| 01-01-2018 |
+
+The query would return:
+
+| DATE       | Year |
+|------------|------|
+| 12-25-2020 | 2020 |
+| 07-04-2019 | 2019 |
+| 01-01-2018 | 2018 |
+
+This method allows you to efficiently extract the year from a date string formatted as 'MM-dd-yyyy' in SQL.
+
 > **Note:** 
 - Familiarize with your SQL database's supported data types.
 - Validate data before casting to prevent errors.
